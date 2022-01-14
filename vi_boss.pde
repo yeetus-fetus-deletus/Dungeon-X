@@ -1,4 +1,4 @@
-void boss() {
+void boss() { //boss mode ================================================================================
   bossMode = true;
 
   drawRoom();
@@ -10,6 +10,7 @@ void boss() {
   textFont(revamped);
   textSize(20);
 
+  //weapons menu
   if (myHero.hp > 0 && myBoss.hp > 0) {
     strokeWeight(5);
     stroke(white);
@@ -35,6 +36,7 @@ void boss() {
     text("FLAMETHROWER", 1180, 650);
     text("LASER", 1180, 690);
 
+    //hero health bar ========================================
     float heroHitpoints = map(myHero.hpMax, 0, myHero.hpMax, 0, 400);
     float heroDamage    = map(myHero.hp, 0, myHero.hpMax, 0, 400);
     textAlign(LEFT, CORNER);
@@ -48,6 +50,7 @@ void boss() {
     textSize(20);
     text(myHero.hp/10+" HP  /  "+myHero.hpMax/10+"  HP", width/6-80, height*0.96);
 
+    //boss health bar ========================================
     float bossHitpoints = map(myBoss.hpMax, 0, myBoss.hpMax, 0, 400);
     float bossDamage    = map(myBoss.hp, 0, myBoss.hpMax, 0, 400);
     textAlign(RIGHT, CORNER);
@@ -76,7 +79,7 @@ void boss() {
   }
 
 
-
+  //pause button ========================================
   pauseButton.show();
   if (pauseButton.click) mode = PAUSE;
   strokeWeight(6);
@@ -88,6 +91,7 @@ void boss() {
   line(1140, 35, 1140, 65);
   line(1160, 35, 1160, 65);
 
+  //boss explosions at destruction ========================================
   if (myBoss.hp <= 0) {
     win = true;
     endGame(3);
@@ -110,7 +114,7 @@ void boss() {
   }
 }
 
-void drawRoom() {
+void drawRoom() { //draw boss arena ========================================
   //walls ========================================
   background(black);
   strokeWeight(2);
@@ -148,9 +152,11 @@ void drawRoom() {
 }
 
 
-void drawConsole(int w, int check) {
+void drawConsole(int w, int check) { //console: night vision and limited weapon timers ========================================
   strokeWeight(5);
   textSize(20);
+
+  //fireball timer
   if (fireball) {
     stroke(black);
     fill(white);
@@ -165,6 +171,7 @@ void drawConsole(int w, int check) {
     fireball = false;
   }
 
+  //spikeball timer
   if (spike) {
     stroke(black);
     fill(white);
@@ -179,6 +186,7 @@ void drawConsole(int w, int check) {
     spike = false;
   }
 
+  //toxic field timer
   if (potion2) {
     stroke(black);
     fill(white);
@@ -193,10 +201,12 @@ void drawConsole(int w, int check) {
     potion2 = false;
   }
 
+  //switch back to main weapon set
   if (!fireball && !spike && !potion2) {
     myHero.myWeapon = arsenal[choose];
   }
 
+  //night vision timer
   float chirp = map(myHero.visionTimer, 0, 900, 0, 250);
   if (vision) {
     stroke(black);
@@ -216,7 +226,8 @@ void drawConsole(int w, int check) {
     vision = false;
   }
 
-
+  //hero machine timers ========================================
+  //sentry spawner timer
   if (check == 1) {
     float caw = map(myHero.barracksTimer, 0, 900, 0, 300);
     if (sentry) {
@@ -229,6 +240,7 @@ void drawConsole(int w, int check) {
       sentryOff = true;
     }
 
+    //bolt turret timer
     float reee = map(myHero.turretTimer, 0, 900, 0, 300);
     if (turret) {
       fill(red);
@@ -240,6 +252,7 @@ void drawConsole(int w, int check) {
       turretOff = true;
     }
 
+    //laser tower timer
     float quack = map(myHero.infernoTimer, 0, 900, 0, 300);
     if (inferno) {
       fill(yellow);

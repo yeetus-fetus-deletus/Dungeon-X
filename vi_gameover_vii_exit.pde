@@ -1,7 +1,8 @@
 void gameOver() { //game over mode ================================================================================
   background(black);
   gameOverGIF.show();
-  
+
+  //win or lose text ========================================
   textFont(revamped);
   textSize(120);
   fill(255);
@@ -11,7 +12,8 @@ void gameOver() { //game over mode =============================================
   } else if (!win) {
     text("YOU  LOSE", width/2, height/4);
   }
-  
+
+  //options ========================================
   gameButton.show();
   homeButton.show();
   exitButton.show();
@@ -24,7 +26,8 @@ void gameOver() { //game over mode =============================================
     mode = INTRO;
   }
   if (exitButton.click) mode = EX;
-  
+
+  //button dividers
   stroke(black);
   line(400, 580, 800, 580);
   line(400, 660, 800, 660);
@@ -44,7 +47,6 @@ void ex() { //exit mode ========================================================
   textSize(25);
   text("ARE YOU SURE YOU WANT TO EXIT?", width/2, 300);
 
-  //exit button ========================================
   textFont(monochrome);
   //cancel button ========================================
   cancelButton.show();

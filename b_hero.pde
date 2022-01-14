@@ -112,14 +112,14 @@ class Hero extends GameObject {
     int i = 0;
     while (i < myObjects.size()) {
       GameObject Obj = myObjects.get(i);
-      if (immuneTimer <= 0) {
-        if (Obj instanceof Spawner || Obj instanceof Stalker || Obj instanceof Shooter || Obj instanceof Stopper) {
+      if (immuneTimer <= 0) { //immunity off: collisions ================================================================================
+        if (Obj instanceof Spawner || Obj instanceof Stalker || Obj instanceof Shooter || Obj instanceof Stopper) { //hits enemy
           if (hits(Obj, 30, Obj.s/2)) {
             Obj.hp = Obj.hp - 200;
             hp = hp - 1;
           }
         }
-        if (Obj instanceof EnemyBullet) {
+        if (Obj instanceof EnemyBullet) { //enemy's bullet
           if (hits(Obj, 30, Obj.s/2)) {
             Obj.hp = Obj.hp - 1;
             hp = hp - 80;
@@ -127,21 +127,21 @@ class Hero extends GameObject {
             explode(Obj.loc.x, Obj.loc.y, Obj.c, 75, 50);
           }
         }
-        if (Obj instanceof EnemyBeam) {
+        if (Obj instanceof EnemyBeam) { //enemy laser beam
           if (hits(Obj, 30, 8)) {
             Obj.hp = 0;
             hp = hp - 2;
             explode(Obj.loc.x, Obj.loc.y, green, 30, 50);
           }
         }
-        if (Obj instanceof Ice) {
+        if (Obj instanceof Ice) { //enemy ice sprayer blast
           if (hits(Obj, 30, Obj.s/2)) {
             Obj.hp = 0;
             hp = hp - 1;
           }
         }
       }
-      if (Obj instanceof DroppedItem) {
+      if (Obj instanceof DroppedItem) { //pickup loot
         if (pickUp(Obj)) {
           DroppedItem item = (DroppedItem) Obj;
           item.hp = 0;
@@ -220,7 +220,7 @@ class Hero extends GameObject {
           }
         }
       }
-      if (Obj instanceof Piece) {
+      if (Obj instanceof Piece) { //key pieces ========================================
         if (pickUp(Obj)) {
           Piece item = (Piece) Obj;
           item.hp = 0;
@@ -228,7 +228,7 @@ class Hero extends GameObject {
         }
       }
 
-      if (Obj instanceof Portal) {
+      if (Obj instanceof Portal) { //up and down portals ========================================
         if (hits(Obj, 30, Obj.s/2)) {
           Portal trip = (Portal) Obj;
           if (trip.type == FLOOR_UP) {
@@ -258,7 +258,7 @@ class Hero extends GameObject {
     }
   }
 
-  void cleanUp() {
+  void cleanUp() { //remove items in different rooms ========================================
     int i = 0;
     while (i < myObjects.size()) {
       GameObject Obj = myObjects.get(i);
@@ -662,7 +662,7 @@ void wheel(int x, int y) {
 }
 
 
-void heroVI(float x, float y, float vx, float vy, int size) {
+void heroVI(float x, float y, float vx, float vy, int size) { //revolution ========================================
   pushMatrix();
   translate(x, y);
   PVector dir = new PVector(vx, vy);

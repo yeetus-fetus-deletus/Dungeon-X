@@ -15,6 +15,7 @@ boolean win, bossMode;
 int timeOut, textTimer, guideTimer;
 int poisonTimer;
 
+//dropped items ========================================
 final int VISION   = 0;
 final int HEALTH   = 1;
 final int SPIKE    = 2;
@@ -23,6 +24,8 @@ final int POISON   = 4;
 final int SENTRY   = 5;
 final int TURRET   = 6;
 final int INFERNO  = 7;
+boolean potion1, potion2, spike, fireball, vision, sentry, sentryOff, turret, turretOff, inferno, infernoOff;
+//key pieces ========================================
 PImage cube1;
 PImage cube2;
 PImage piece1;
@@ -30,12 +33,12 @@ PImage piece2;
 PImage piece3;
 PImage piece4;
 int PIECES;
-boolean potion1, potion2, spike, fireball, vision, sentry, sentryOff, turret, turretOff, inferno, infernoOff;
 
+//change levels ========================================
 final int FLOOR_UP   = 1;
 final int FLOOR_DOWN = 2;
 
-//keys ========================================
+//keyboard ========================================
 boolean wkey, skey, akey, dkey, spacekey, jkey, ukey, ikey, okey, pkey, leftkey, rightkey;
 
 //button clicks ========================================
@@ -463,7 +466,7 @@ void reset() { //reset game ====================================================
   }
 }
 
-void gameMap(int z) {
+void gameMap(int z) { //load maps ================================================================================
   map = loadImage("images/map"+z+".png");
   int x = 0, y = 0;
   float honk   = map(z, 1, 4, 30, 10);

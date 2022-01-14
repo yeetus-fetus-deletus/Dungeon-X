@@ -1,4 +1,4 @@
-class Bullet extends GameObject {
+class Bullet extends GameObject { //standard bullet ========================================
 
   Bullet() {
     c = white;
@@ -46,7 +46,7 @@ class Bullet extends GameObject {
   }
 }
 
-class EnemyBullet extends Bullet {
+class EnemyBullet extends Bullet { //enemy shooting bullet ========================================
 
   EnemyBullet(float x, float y, float vx, float vy) {
     super();
@@ -67,7 +67,7 @@ class EnemyBullet extends Bullet {
   }
 }
 
-class Bolt extends Bullet {
+class Bolt extends Bullet { //triangle darts ========================================
 
   Bolt(PVector aimVector, float x, float y, color _c, float _s) {
     loc = new PVector(x, y);
@@ -101,7 +101,7 @@ class Bolt extends Bullet {
 }
 
 
-class Fireball extends Bullet {
+class Fireball extends Bullet { //fireball special weapon ========================================
 
   //constructor
   Fireball(PVector aimVector) {
@@ -150,7 +150,7 @@ class Fireball extends Bullet {
     }
   }
 }
-class Spikeball extends Bullet {
+class Spikeball extends Bullet { //spikeball special weapon ========================================
 
   Spikeball(PVector aimVector) {
     super();
@@ -212,7 +212,7 @@ class Spikeball extends Bullet {
     }
   }
 }
-class Splash extends Bullet {
+class Splash extends Bullet { //chemical canister special weapon ========================================
 
   //constructor
   Splash(PVector aimVector) {
@@ -249,7 +249,7 @@ class Splash extends Bullet {
     }
   }
 }
-class Field extends Bullet {
+class Field extends Bullet { //toxic field special weapon ========================================
 
   Field(float x, float y) {
     super();
@@ -326,7 +326,7 @@ class Field extends Bullet {
 }
 
 
-class Beam extends GameObject {
+class Beam extends GameObject { //laser beam ========================================
 
   //constructor
   Beam(PVector aimVector, float distanceX, float distanceY) {
@@ -371,7 +371,7 @@ class Beam extends GameObject {
     }
   }
 }
-class InfernoBeam extends GameObject {
+class InfernoBeam extends GameObject { //tower laser ========================================
 
   InfernoBeam(float x, float y, float vx, float vy) {
     hp = 1;
@@ -422,7 +422,7 @@ class InfernoBeam extends GameObject {
     }
   }
 }
-class EnemyBeam extends GameObject {
+class EnemyBeam extends GameObject { //enemy laser ========================================
 
   //constructor
   EnemyBeam(float x, float y, float vx, float vy) {
@@ -530,7 +530,7 @@ class Fire extends GameObject { //fire particles ===============================
     if (t <= 0) hp = 0;
   }
 }
-class Ice extends GameObject { //fire particles ========================================
+class Ice extends GameObject { //ice spray particles ========================================
 
   float t;
 
@@ -598,7 +598,7 @@ class Particle extends GameObject { //explosion particles ======================
 }
 
 
-class Exhaust extends GameObject {
+class Exhaust extends GameObject { //ship movement exhaust ========================================
 
   float t;
 
@@ -662,7 +662,7 @@ class Exhaust extends GameObject {
 }
 
 
-class Tail extends GameObject {
+class Tail extends GameObject { //fireball smoke tail ========================================
 
   float t;
   float f;

@@ -26,12 +26,12 @@ class Dark {
 
 
 class Text extends Message {
-  
+
   String text;
   float x, y, f, q, g;
   color textC;
   int textS;
-  
+
   Text(float _x, float _y, String t, color c, int s, float _f, float _g) {
     hp = 1;
     x = _x;
@@ -46,7 +46,7 @@ class Text extends Message {
     textC = c;
     textS = s;
   }
-  
+
   void show() {
     textFont(revamped);
     fill(textC, q);

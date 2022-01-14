@@ -1,4 +1,4 @@
-class Splasher extends Weapon {
+class Splasher extends Weapon { //toxic field shooter ========================================
 
   Splasher() {
     super(60, 15);
@@ -13,7 +13,7 @@ class Splasher extends Weapon {
     }
   }
 }
-class Cannon extends Weapon {
+class Cannon extends Weapon { //fireball shooter ========================================
 
   Cannon() {
     super(60, 15);
@@ -28,7 +28,7 @@ class Cannon extends Weapon {
     }
   }
 }
-class Launcher extends Weapon {
+class Launcher extends Weapon { //spikeball shooter ========================================
 
   Launcher() {
     super(60, 15);
@@ -45,7 +45,7 @@ class Launcher extends Weapon {
 }
 
 
-class Auto extends Weapon {
+class Auto extends Weapon { //auto shooting pistol ========================================
 
   //constructor
   Auto() {
@@ -81,7 +81,7 @@ class Auto extends Weapon {
 }
 
 
-class Pistol extends Weapon {
+class Pistol extends Weapon { //manual pistol ========================================
 
   //constructor
   Pistol() {
@@ -117,7 +117,7 @@ class Pistol extends Weapon {
 }
 
 
-class Shotgun extends Weapon {
+class Shotgun extends Weapon { //shotgun ========================================
 
   //constructor
   Shotgun() {
@@ -158,7 +158,7 @@ class Shotgun extends Weapon {
 }
 
 
-class Flame extends Weapon {
+class Flame extends Weapon { //flamethrower ========================================
 
   //constructor
   Flame() {
@@ -198,7 +198,7 @@ class Flame extends Weapon {
 }
 
 
-class Laser extends Weapon {
+class Laser extends Weapon { //laser shooter ========================================
 
   //constructor
   Laser() {

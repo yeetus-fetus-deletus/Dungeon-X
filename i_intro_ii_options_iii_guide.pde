@@ -38,7 +38,7 @@ void options() {
   line(0, 200, width, 200);
   line(width/2, 200, width/2, height);
 
-
+  //select hero ship type ========================================
   textFont(revamped);
   heroIButton.show();
   heroIIButton.show();
@@ -66,6 +66,7 @@ void options() {
     firestorm = stallion = hypershock = blackstar = deadlock = false;
   }
 
+  //button dividers
   stroke(black);
   line(0, 300, width/2, 300);
   line(0, 400, width/2, 400);
@@ -108,6 +109,7 @@ void options() {
     heroVI(width*5/6-10, height*2/3, 0, -height, 3);
   }
 
+  //hero ship stats ========================================
   textAlign(CORNER, CENTER);
   fill(white);
   stroke(white);
@@ -148,6 +150,7 @@ void options() {
     closeButton.show();
   }
 
+  //proceed to guide ========================================
   if (closeButton.click) {
     if (firestorm == true) {
       myHero = new Firestorm();
@@ -185,6 +188,7 @@ void guide() { //guide mode ====================================================
   textFont(revamped);
   textSize(28);
 
+  //written instructions ========================================
   guideTimer = guideTimer + 1;
   if (guideTimer > 10) {
     text("INSTRUCTIONS:", 200, 90);
@@ -239,7 +243,8 @@ void guide() { //guide mode ====================================================
   textAlign(CENTER, CENTER);
   textFont(paladins);
   textSize(40);
-  
+
+  //pacing words timer ========================================
   textTimer = textTimer - 1;
   if (textTimer == 300 && textTimer >= 240) {
     text("5", width/2, height*4/5);
@@ -255,6 +260,6 @@ void guide() { //guide mode ====================================================
     text("CLICK ANYWHERE TO BEGIN", width/2, height*4/5);
   }
 }
-void guideClicks() {
+void guideClicks() { //start game ========================================
   mode = GAME;
 }

@@ -26,6 +26,7 @@ void game() { //game mode ======================================================
   textFont(revamped);
   textSize(20);
 
+  //weapon menu ========================================
   strokeWeight(5);
   stroke(white);
   fill(darkGrey);
@@ -76,6 +77,7 @@ void game() { //game mode ======================================================
   textSize(20);
   text(myHero.hp/10+" HP  /  "+myHero.hpMax/10+"  HP", 210, height*0.96);
 
+  //ship speedometer ========================================
   strokeWeight(5);
   stroke(black);
   fill(green);
@@ -108,6 +110,7 @@ void game() { //game mode ======================================================
   text(myHero.speed+"  KN", width/12, height*0.85);
   textAlign(CORNER, CENTER);
 
+  //key pieces collection ========================================
   strokeWeight(6);
   stroke(white);
   fill(#0E5808);
@@ -128,6 +131,7 @@ void game() { //game mode ======================================================
     image(piece4, 900, 740, 32.25, 38.25);
   }
 
+  //current floor ========================================
   textAlign(CENTER, CENTER);
   fill(white);
   textSize(35);
@@ -177,7 +181,7 @@ void drawObjects() { //game objects ========================================
     }
   }
 }
-boolean with(GameObject obj) {
+boolean with(GameObject obj) { //in same room
   return myHero.roomX == obj.roomX && myHero.roomY == obj.roomY && myHero.roomZ == obj.roomZ;
 }
 
@@ -192,7 +196,7 @@ void drawDarkness() { //darkness screen ========================================
   rectMode(CENTER);
 }
 
-void drawMessages() {
+void drawMessages() { //add floating text ========================================
   int i = 0;
   while (i < myTexts.size()) {
     Message Msg = myTexts.get(i);
@@ -207,11 +211,11 @@ void drawMessages() {
     }
   }
 }
-boolean with(Message msg) {
+boolean with(Message msg) { //in same room
   return myHero.roomX == msg.roomX && myHero.roomY == msg.roomY && myHero.roomZ == msg.roomZ;
 }
 
-void drawMap() {
+void drawMap() { //mini map on screen ========================================
   noStroke();
   rectMode(CORNER);
   int y = 0;
@@ -272,7 +276,7 @@ void pause() { //pause mode ====================================================
   } else if (increaseDamage.click && myHero.xp >= 200) {
     myHero.damage = myHero.damage + 1;
     myHero.xp = myHero.xp - 200;
-  } else if (myHero.xp < 100) {
+  } else if (myHero.xp < 100) { //cannot upgrade further ========================================
     increaseHP.click = increaseSpeed.click = increaseDamage.click = false;
     fill(white);
     rect(width/2, 560, 560, 50);
@@ -281,7 +285,7 @@ void pause() { //pause mode ====================================================
     textSize(30);
     text("NOT ENOUGH XP TO UPGRADE", width/2, 560);
   }
-  if (myHero.hpMax >= myHero.hpMaxMax) {
+  if (myHero.hpMax >= myHero.hpMaxMax) { //reach max hp level ========================================
     increaseHP.click = false;
     fill(white);
     rect(width/4+30, 320, 100, 50);
@@ -290,7 +294,7 @@ void pause() { //pause mode ====================================================
     textSize(30);
     text("MAX", width/4+30, 320);
   }
-  if (myHero.speed >= myHero.speedMax) {
+  if (myHero.speed >= myHero.speedMax) { //reach max speed level ========================================
     increaseSpeed.click = false;
     fill(white);
     rect(width/4+30, 396, 100, 50);
@@ -299,7 +303,7 @@ void pause() { //pause mode ====================================================
     textSize(30);
     text("MAX", width/4+30, 396);
   }
-  if (myHero.damage >= myHero.damageMax) {
+  if (myHero.damage >= myHero.damageMax) { //reach max damage level ========================================
     increaseDamage.click = false;
     fill(white);
     rect(width/4+30, 480, 100, 50);
@@ -309,7 +313,7 @@ void pause() { //pause mode ====================================================
     text("MAX", width/4+30, 480);
   }
 
-
+  //return to game ========================================
   playButton.show();
   if (playButton.click) {
     if (bossMode == false) {
@@ -334,7 +338,12 @@ void pause() { //pause mode ====================================================
   text("PAUSE", width/2, 630);
 }
 
-void endGame(int a) {
+void endGame(int a) { //ways to end game ========================================
+
+  // 1 = win main game: go to boss level
+  // 2 = lose game: go to gameover screen
+  // 3 = win boss level: go to gameover screen
+
   textTimer = timeOut*2;
   if (textTimer > 80) textTimer = 80;
   textFont(revamped);

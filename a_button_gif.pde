@@ -41,21 +41,21 @@ class Button {
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
     noStroke();
-    
+
     if (mouseReleased && mouseX > x-(w/2) && mouseX < x+(w/2) && mouseY > y-(h/2) && mouseY < y+(h/2)) {
       click = true;
     } else {
       click = false;
     }
-    
+
     if (mouseX > x-(w/2) && mouseX < x+(w/2) && mouseY > y-(h/2) && mouseY < y+(h/2)) {
       fill(highlight);
     } else {
-     fill(normal); 
+      fill(normal);
     }
     strokeWeight(2);
     rect(x, y, w, h, t);
-    
+
     if (mouseX > x-(w/2) && mouseX < x+(w/2) && mouseY > y-(h/2) && mouseY < y+(h/2)) {
       fill(highlightT);
     } else {

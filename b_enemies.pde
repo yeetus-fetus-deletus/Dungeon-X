@@ -26,12 +26,12 @@ class Enemy extends GameObject {
     int i = 0;
     while (i < myObjects.size()) {
       GameObject Obj = myObjects.get(i);
-      if (Obj instanceof Bullet && hits(Obj, s/2, Obj.s/2)) {
-        if (Obj.c == blue || Obj.c == lightGrey) {
+      if (Obj instanceof Bullet && hits(Obj, s/2, Obj.s/2)) { //weapon hits ========================================
+        if (Obj.c == blue || Obj.c == lightGrey) { //auto and pistol
           Obj.hp = 0;
           hp = hp - (2700+myHero.damage*20);
           explode(Obj.loc.x, Obj.loc.y, Obj.c, 60, 50);
-        } else if (Obj.c == red) {
+        } else if (Obj.c == red) { // shotgun
           Obj.hp = 0;
           hp = hp - (600+myHero.damage*20);
           explode(Obj.loc.x, Obj.loc.y, Obj.c, 60, 50);
@@ -45,7 +45,7 @@ class Enemy extends GameObject {
           myTexts.add(new Text(loc.x, loc.y, "+"+xp/10, gold1, 40, 0.7, 3));
         }
       }
-      if (Obj instanceof Bolt && hits(Obj, s/2, Obj.s/2)) {
+      if (Obj instanceof Bolt && hits(Obj, s/2, Obj.s/2)) { //triangle darts
         Obj.hp = 0;
         hp = hp - (3000+myHero.damage*30);
         explode(Obj.loc.x, Obj.loc.y, Obj.c, 40, 50);
@@ -59,7 +59,7 @@ class Enemy extends GameObject {
         }
       }
 
-      if (Obj instanceof Beam && hits(Obj, s/2, 8)) {
+      if (Obj instanceof Beam && hits(Obj, s/2, 8)) { //laser beams
         hp = hp - (200+myHero.damage*2);
         Obj.hp = 0;
         explode(Obj.loc.x, Obj.loc.y, white, 60, 40);
@@ -72,7 +72,7 @@ class Enemy extends GameObject {
           myTexts.add(new Text(loc.x, loc.y, "+"+xp/10, gold1, 40, 0.7, 3));
         }
       }
-      if (Obj instanceof Fire && hits(Obj, s/2, Obj.s/2)) {
+      if (Obj instanceof Fire && hits(Obj, s/2, Obj.s/2)) { //flamethrower
         hp = hp - (5+myHero.damage);
         Obj.hp = 0;
         if (hp <= 0) {
@@ -84,7 +84,7 @@ class Enemy extends GameObject {
           myTexts.add(new Text(loc.x, loc.y, "+"+xp/10, gold1, 40, 0.7, 3));
         }
       }
-      if (Obj instanceof Fireball || Obj instanceof Spikeball) {
+      if (Obj instanceof Fireball || Obj instanceof Spikeball) { //limited weapons: fireball and spikeball
         if (hits(Obj, s/2, Obj.s/2)) {
           hp = 0;
           if (Obj instanceof Spikeball) ((Spikeball) Obj).redirect();
@@ -98,7 +98,7 @@ class Enemy extends GameObject {
           }
         }
       }
-      if (Obj instanceof Splash) {
+      if (Obj instanceof Splash) { // limited weapons: toxic field
         if (hits(Obj, s/2, Obj.s/2)) {
           hp = hp - (4000+myHero.damage*10);
           Obj.hp = 0;
@@ -119,7 +119,7 @@ class Enemy extends GameObject {
 }
 
 
-void explode(float x, float y, color c, float s, float n) {
+void explode(float x, float y, color c, float s, float n) { //explosions ========================================
   int u = 0;
   while (u < n) {
     myObjects.add(new Particle(x, y, c, s));
@@ -128,7 +128,7 @@ void explode(float x, float y, color c, float s, float n) {
 }
 
 
-class Stopper extends Enemy {
+class Stopper extends Enemy { //random bouncing enemy ========================================
 
   Stopper(int hp, int rx, int ry, int rz, float s) {
     super(hp, rx, ry, rz, s, 70);
@@ -177,7 +177,7 @@ class Stopper extends Enemy {
   }
 }
 
-class Stalker extends Enemy {
+class Stalker extends Enemy { //following enemy ========================================
 
   Stalker(int hp, int rx, int ry, int rz) {
     super(hp, rx, ry, rz, 30, 50);
@@ -223,7 +223,7 @@ class Stalker extends Enemy {
 }
 
 
-class Spawner extends Enemy {
+class Spawner extends Enemy { //spawning enemy followers ========================================
 
   int shot;
 
@@ -268,7 +268,7 @@ class Spawner extends Enemy {
 }
 
 
-class Shooter extends Enemy {
+class Shooter extends Enemy { //turret enemy ========================================
 
   int shot;
 
@@ -322,7 +322,7 @@ class Shooter extends Enemy {
 }
 
 
-class Chest extends GameObject {
+class Chest extends GameObject { //chest with key pieces ========================================
 
   Chest(int _hp, int rx, int ry, int rz, float _s) {
     loc = new PVector(random(160, width-160), random(160, height-160));
@@ -403,7 +403,7 @@ class Chest extends GameObject {
 }
 
 
-class Boss extends GameObject {
+class Boss extends GameObject { //boss enemy ================================================================================
 
   int followTimer;
   int bulletTimer;

@@ -1,4 +1,4 @@
-class Firestorm extends Hero {
+class Firestorm extends Hero { //firestorm ========================================
 
   Firestorm() {
     super(1000, 8);
@@ -22,7 +22,7 @@ class Firestorm extends Hero {
 }
 
 
-class Stallion extends Hero {
+class Stallion extends Hero { //stallion ========================================
 
   Stallion() {
     super(1100, 10);
@@ -45,7 +45,7 @@ class Stallion extends Hero {
 }
 
 
-class Hypershock extends Hero {
+class Hypershock extends Hero { //hypershock ========================================
 
   Hypershock() {
     super(900, 14);
@@ -68,7 +68,7 @@ class Hypershock extends Hero {
 }
 
 
-class Blackstar extends Hero {
+class Blackstar extends Hero { //blackstar ========================================
 
   Blackstar() {
     super(1200, 11);
@@ -91,7 +91,7 @@ class Blackstar extends Hero {
 }
 
 
-class Deadlock extends Hero {
+class Deadlock extends Hero { //deadlock ========================================
 
   Deadlock() {
     super(1400, 9);
@@ -114,7 +114,7 @@ class Deadlock extends Hero {
 }
 
 
-class Revolution extends Hero {
+class Revolution extends Hero { //revolution ========================================
 
   Revolution() {
     super(1500, 12);
@@ -140,7 +140,7 @@ class Revolution extends Hero {
 
 
 
-class Barracks extends GameObject {
+class Barracks extends GameObject { //hero side sentry spawner ========================================
 
   Barracks(float x, float y) {
     hp = 1;
@@ -182,7 +182,7 @@ class Barracks extends GameObject {
   }
 }
 
-class Sentry extends GameObject {
+class Sentry extends GameObject { //hero side followers ========================================
 
   Sentry(float x, float y, float _s) {
     roomX = myHero.roomX;
@@ -240,7 +240,7 @@ class Sentry extends GameObject {
 
 
 
-class Turret extends GameObject {
+class Turret extends GameObject { //hero side bolt shooter ========================================
 
   PVector aimVector;
 
@@ -297,8 +297,8 @@ class Turret extends GameObject {
 
 
 
-class Inferno extends GameObject {
-  
+class Inferno extends GameObject { //hero side laser tower ========================================
+
   PVector aimVector;
 
   Inferno(float x, float y) {

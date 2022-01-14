@@ -1,4 +1,4 @@
-class DroppedItem extends GameObject {
+class DroppedItem extends GameObject { //dropped items from enemy kills ========================================
 
   int type;
   Weapon w;
@@ -12,8 +12,6 @@ class DroppedItem extends GameObject {
     } else if (roomZ >= 5) {
       type = int(random(1, 8));
     }
-    
-    //type = int(random(5, 8));
 
     hp = 1;
     s = 30;
@@ -91,7 +89,7 @@ class DroppedItem extends GameObject {
   }
 }
 
-class Piece extends GameObject {
+class Piece extends GameObject { //key pieces ========================================
 
   Piece(float x, float y, int rx, int ry, int rz) {
     hp = 1;
@@ -125,7 +123,7 @@ class Piece extends GameObject {
   }
 }
 
-class Portal extends GameObject {
+class Portal extends GameObject { //transport portals ========================================
 
   int type, hx, hy;
 
